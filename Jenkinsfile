@@ -4,15 +4,15 @@ pipeline {
     //    packageVersion = '' 
     // }
     stages {
-        stage('Get Version') {
-            steps {
-              script {
-                def packageJson = readJSON(file: 'package.json')
-                def packageVersion = packageJSON.version
-                echo "version: ${packageVersion}"
-              }
-            }
-        }
+        // stage('Get Version') {
+        //     steps {
+        //       script {
+        //         def packageJson = readJSON(file: 'package.json')
+        //         def packageVersion = packageJSON.version
+        //         echo "version: ${packageVersion}"
+        //       }
+        //     }
+        // }
         stage('Install depdencies') {
             steps {
                 sh 'npm install'
