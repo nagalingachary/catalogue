@@ -13,7 +13,6 @@ pipeline {
               }
             }
         }
-    }
         stage('Install depdencies') {
             steps {
                 sh 'npm install'
@@ -65,7 +64,7 @@ pipeline {
         //             ]
         //         )
         //     }
-        // }
+        }
 
         stage('Deploy') {
             steps {
@@ -81,4 +80,3 @@ pipeline {
             deleteDir()
         }
     }
-}
