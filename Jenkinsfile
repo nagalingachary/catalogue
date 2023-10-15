@@ -23,29 +23,29 @@ pipeline {
          stage('Build') {
             steps {
                 sh 'ls -ltr'
-                sh 'zip -r ./* --exclude=.git --exclude=.git'
+                sh 'zip -r catalogue.zip ./* --exclude=.git --exclude=.git'
             }
         }
 
-        // stage('Publish Artifact') {
-        //     steps {
-        //         nexusArtifactUploader(
-        //             nexusVersion: 'nexus3',
-        //             protocol: 'http',
-        //             nexusUrl: '3.88.230.77:8081/',
-        //             groupId: 'com.roboshop',
-        //             version: '1.0.2',
-        //             repository: 'catalogue',
-        //             credentialsId: 'nexus-auth',
-        //             artifacts: [
-        //                 [artifactId: 'catalogue',
-        //                 classifier: '',
-        //                 file: 'catalogue.zip',
-        //                 type: 'zip']
-        //             ]
-        //         )
-        //     }
-        // }
+        stage('Publish Artifact') {
+            steps {
+                nexusArtifactUploader(
+                    nexusVersion: 'nexus3',
+                    protocol: 'http',
+                    nexusUrl: '3.88.230.77:8081/',
+                    groupId: 'com.roboshop',
+                    version: '1.0.0',
+                    repository: 'catalogue',
+                    credentialsId: 'nexus-auth',
+                    artifacts: [
+                        [artifactId: 'catalogue',
+                        classifier: '',
+                        file: 'catalogue.zip',
+                        type: 'zip']
+                    ]
+                )
+            }
+        }
 
         stage('Deploy') {
             steps {
