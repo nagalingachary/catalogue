@@ -23,7 +23,7 @@ pipeline {
          stage('Build') {
             steps {
                 sh 'ls -ltr'
-                sh 'zip -r catalogue.zip ./* --exclude=.git'
+                sh 'zip -r ./* --exclude=.git'
             }
         }
 
@@ -47,18 +47,18 @@ pipeline {
         //     }
         // }
 
-        // stage('Deploy') {
-        //     steps {
-        //         echo "Deployment"
-        //     }
-        // }
+        stage('Deploy') {
+            steps {
+                echo "Deployment"
+            }
+        }
 
     }
 
     post{
         always{
             echo 'cleaning up workspace'
-            deleteDir()
+            //deleteDir()
         }
     }
 }
