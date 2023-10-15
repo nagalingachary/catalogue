@@ -1,8 +1,8 @@
 pipeline {
     agent { node { label 'AGENT-1' } }
-    environment {
-       packageVersion = '' 
-    }
+    // environment {
+    //    packageVersion = '' 
+    // }
     stages {
         stage('Get Version') {
             steps {
