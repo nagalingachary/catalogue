@@ -1,10 +1,13 @@
 pipeline {
     agent { node { label 'AGENT-1' } }
+    environment {
+       packageVersion = '' 
+    }
     stages {
         stage('Get Version') {
             steps {
               script {
-                def packageJson = readJSON file: 'package.json'
+                def packageJson = readJSON(file: 'package.json')
                 def packageVersion = packageJSON.version
                 echo "version: ${packageVersion}"
               }
@@ -38,7 +41,8 @@ pipeline {
 
         stage('SAST') {
             steps {
-                echo 'SAST done'
+                echo "SAST done"
+                echo "package version = ${packageVersion}"
             }
         }
 
