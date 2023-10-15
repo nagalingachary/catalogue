@@ -64,7 +64,7 @@ pipeline {
         //             ]
         //         )
         //     }
-        }
+        //}
 
         stage('Deploy') {
             steps {
@@ -80,3 +80,5 @@ pipeline {
             deleteDir()
         }
     }
+
+}
