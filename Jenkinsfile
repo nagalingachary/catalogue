@@ -42,7 +42,7 @@ pipeline {
         stage('SAST') {
             steps {
                 echo "SAST done"
-                echo "version: ${packageVersion}"
+                echo "package version: $packageVersion"
             }
         }
 
