@@ -4,18 +4,18 @@ pipeline {
     //    packageVersion = '' 
     // }
     stages {
-        stage('Get Version') {
-            steps {
-              script {
-                props = readJSON file: 'package.json'
-                echo "props.version"
-                //env.Version=readJSON(file: 'package.json').version
-                // def packageJson = readJSON(file:'package.json')
-                // def packageVersion = packageJson.version
-                // echo "version: ${packageVersion}"
-              }
-            }
-        }
+        // stage('Get Version') {
+        //     steps {
+        //       script {
+        //         props = readJSON file: 'package.json'
+        //         echo "props.version"
+        //         //env.Version=readJSON(file: 'package.json').version
+        //         // def packageJson = readJSON(file:'package.json')
+        //         // def packageVersion = packageJson.version
+        //         // echo "version: ${packageVersion}"
+        //       }
+        //     }
+        // }
         stage('Install depdencies') {
             steps {
                 sh 'npm install'
